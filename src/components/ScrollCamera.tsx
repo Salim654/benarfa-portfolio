@@ -11,26 +11,19 @@ const TOTAL_FRAMES = 151;
 const TILE_W = 864;
 const TILE_H = 496;
 const SPRITE_SRC = "/camera-spritesheet.jpg";
+const FALLBACK_BG = "#111111";
 
 interface ScrollCameraProps {
   readonly scrollProgress: MotionValue<number>;
 }
 
 export function ScrollCamera({ scrollProgress }: ScrollCameraProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const frameRef = useRef(0);
   const rafRef = useRef(0);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = SPRITE_SRC;
-    img.onload = () => {
-      imgRef.current = img;
-      drawFrame(0);
-    };
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
+  const layoutRef = useRef({ cssW: 0, cssH: 0, dpr: 1 });
 
   const drawFrame = (index: number) => {
     const canvas = canvasRef.current;
@@ -39,19 +32,15 @@ export function ScrollCamera({ scrollProgress }: ScrollCameraProps) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const { cssW, cssH, dpr } = layoutRef.current;
+    if (cssW <= 0 || cssH <= 0) return;
+
     const col = index % COLS;
     const row = Math.floor(index / COLS);
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const cssW = canvas.clientWidth;
-    const cssH = canvas.clientHeight;
-
-    if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
-      canvas.width = Math.round(cssW * dpr);
-      canvas.height = Math.round(cssH * dpr);
-    }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, cssW, cssH);
+    ctx.fillStyle = FALLBACK_BG;
+    ctx.fillRect(0, 0, cssW, cssH);
 
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "medium";
@@ -75,18 +64,60 @@ export function ScrollCamera({ scrollProgress }: ScrollCameraProps) {
     );
   };
 
+  const render = (index: number) => {
+    frameRef.current = index;
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => drawFrame(index));
+  };
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const resizeCanvas = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const cssW = container.clientWidth;
+      const cssH = container.clientHeight;
+      if (cssW <= 0 || cssH <= 0) return;
+
+      layoutRef.current = { cssW, cssH, dpr };
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+      drawFrame(frameRef.current);
+    };
+
+    const observer = new ResizeObserver(resizeCanvas);
+    observer.observe(container);
+    resizeCanvas();
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = SPRITE_SRC;
+    img.decode?.().catch(() => {});
+    img.onload = () => {
+      imgRef.current = img;
+      drawFrame(frameRef.current);
+    };
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
   useEffect(() => {
     const update = (latest: number) => {
       const index = Math.min(
         TOTAL_FRAMES - 1,
-        Math.max(0, Math.floor(latest * (TOTAL_FRAMES - 1))),
+        Math.max(0, Math.round(latest * (TOTAL_FRAMES - 1))),
       );
-      if (index !== frameRef.current) {
-        frameRef.current = index;
-        rafRef.current = requestAnimationFrame(() => drawFrame(index));
-      }
+      render(index);
     };
     const unsub = scrollProgress.on("change", update);
+    update(scrollProgress.get());
     return unsub;
   }, [scrollProgress]);
 
@@ -94,7 +125,11 @@ export function ScrollCamera({ scrollProgress }: ScrollCameraProps) {
   const scrollHintOpacity = useTransform(scrollProgress, [0, 0.06], [1, 0]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-slate-dark">
+    <div
+      ref={containerRef}
+      className="relative h-screen w-full overflow-hidden"
+      style={{ backgroundColor: FALLBACK_BG }}
+    >
       <canvas
         ref={canvasRef}
         className="block h-full w-full"
