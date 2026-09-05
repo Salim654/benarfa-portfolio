@@ -57,17 +57,14 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           {detailData.backLabel}
         </Link>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <p className="text-xs uppercase tracking-[0.2em] text-accent-strong">
             {current.categories.join(" . ")} . {detailData.tag}
           </p>
-          <span className="text-xs uppercase tracking-widest text-ink-soft">
-            {detailData.ref}
-          </span>
+          <p className="text-xs uppercase tracking-widest text-ink-soft">
+            {detailData.volume}
+          </p>
         </div>
-        <p className="mt-2 text-xs uppercase tracking-[0.2em] text-ink-soft">
-          {detailData.volume}
-        </p>
 
         <div className="mt-4 grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="lg:col-span-8">

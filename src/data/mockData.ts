@@ -1,7 +1,6 @@
 import type {
   Category,
   ContactGenre,
-  BudgetTier,
   Monograph,
   NavLink,
   Project,
