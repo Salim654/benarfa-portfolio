@@ -2,19 +2,10 @@ import { Link } from "react-router-dom";
 import { aboutData } from "../data/mockData";
 
 export function About() {
-  const { metaRibbon, portrait, bio, philosophy, exhibitions, pressClients, cta, exhibitionsLabel, pressClientsLabel } = aboutData;
+  const {  portrait, bio, exhibitions, pressClients, cta, exhibitionsLabel, pressClientsLabel } = aboutData;
   return (
     <>
-      <div className="border-b border-hairline bg-paper">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4 text-xs uppercase tracking-widest text-ink-soft md:px-8 lg:px-12">
-          <span>{metaRibbon.volume}</span>
-          <span className="hidden sm:inline">{metaRibbon.ref}</span>
-          <span className="hidden md:inline">{metaRibbon.optics}</span>
-          <span className="text-accent-strong">{metaRibbon.location}</span>
-        </div>
-      </div>
-
-      <section className="mx-auto max-w-7xl px-5 pt-12 md:px-8 lg:px-12">
+      <section className="mx-auto max-w-7xl px-5 pt-32 md:px-8 md:pt-36 lg:px-12">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="relative overflow-hidden rounded">
@@ -24,9 +15,7 @@ export function About() {
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover"
               />
-              <div className="absolute left-4 top-4 rounded bg-primary-container/85 px-3 py-1.5 text-xs text-paper backdrop-blur-md">
-                {portrait.frame} . {portrait.stock}
-              </div>
+
             </div>
             <figcaption className="mt-4">
               <p className="font-serif text-xl text-ink">{portrait.name}</p>
@@ -58,55 +47,10 @@ export function About() {
                 {bio.quoteMeta}
               </footer>
             </blockquote>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {bio.badges.map((badge) => (
-                <span
-                  key={badge}
-                  className="rounded-full border border-hairline px-4 py-1.5 text-xs uppercase tracking-wider text-ink-soft"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-20 bg-slate-dark py-20 text-paper md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">
-            {philosophy.label}
-          </p>
-          <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">
-            {philosophy.title}
-          </h2>
-
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {philosophy.pillars.map((pillar) => (
-              <article
-                key={pillar.index}
-                className="rounded border border-hairline/20 p-6 transition-transform duration-300 hover:-translate-y-1"
-              >
-                <span className="font-serif text-4xl text-accent">{pillar.index}</span>
-                <h3 className="mt-4 font-serif text-2xl text-paper">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {pillar.description}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-ink-soft">
-            {philosophy.optics.map((optic) => (
-              <span key={optic} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-                {optic}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24 lg:px-12">
         <p className="text-xs uppercase tracking-[0.2em] text-accent-strong">

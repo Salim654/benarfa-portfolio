@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import clsx from "clsx";
 import { useState } from "react";
-import { budgetTiers, contactData, contactGenres, uiCopy } from "../data/mockData";
+import { contactData, contactGenres, uiCopy } from "../data/mockData";
 
 const contactSchema = z.object({
   genre: z.string().min(1, "Please select a commission type."),
@@ -65,9 +65,6 @@ export function Contact() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-5 pt-32 md:px-8 md:pt-36 lg:px-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-accent-strong">
-          {hero.breadcrumb}
-        </p>
         <h1 className="mt-3 font-serif text-5xl leading-tight text-ink md:text-6xl">
           {hero.title.split(" ").map((word, i, arr) =>
             i === arr.length - 1 ? (
@@ -122,17 +119,10 @@ export function Contact() {
               </div>
             </dl>
 
-            <div className="mt-8 rounded border border-hairline bg-paper p-5">
-              <p className="flex items-center gap-2 text-sm font-medium text-ink">
-                <span className="text-accent-strong" aria-hidden="true">◉</span>
-                {studio.portalCallout}
-              </p>
-            </div>
-
             <div className="mt-8 overflow-hidden rounded">
               <img
                 src={studio.studioImage}
-                alt={studio.studioAlt}
+              
                 loading="lazy"
                 className="aspect-[4/3] w-full object-cover"
               />
@@ -282,34 +272,6 @@ export function Contact() {
                       )}
                     </div>
                   </div>
-
-                  <fieldset>
-                    <legend className={labelClasses}>Budget Tier</legend>
-                    <div className="mt-3 space-y-2">
-                      {budgetTiers.map((tier) => (
-                        <label
-                          key={tier.value}
-                          className="flex cursor-pointer items-center gap-3 rounded border border-hairline px-4 py-3 transition-colors has-[:checked]:border-ink has-[:checked]:bg-accent/5"
-                        >
-                          <input
-                            type="radio"
-                            value={tier.value}
-                            className="peer sr-only"
-                            {...register("budget")}
-                          />
-                          <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-hairline transition-colors peer-checked:border-accent-strong peer-checked:bg-accent-strong">
-                            <span className="h-1.5 w-1.5 rounded-full bg-paper" />
-                          </span>
-                          <span className="text-sm text-ink">{tier.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                    {errors.budget && (
-                      <p className="mt-2 text-sm text-error" role="alert">
-                        {errors.budget.message}
-                      </p>
-                    )}
-                  </fieldset>
 
                   <div>
                     <label htmlFor="scope" className={labelClasses}>

@@ -98,11 +98,11 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
       </section>
 
       <section className="mt-12" aria-label="Project hero image">
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <img
             src={hero?.src ?? coverImage}
             alt={hero?.alt ?? coverAlt}
-            className="max-h-[80vh] w-full object-cover"
+            className="block h-[70vh] w-full object-cover"
           />
           <div className="absolute left-4 top-4 flex flex-col gap-2 text-xs">
             <span className="w-fit rounded bg-black/70 px-3 py-1 text-paper backdrop-blur-md">

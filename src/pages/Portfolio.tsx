@@ -19,9 +19,7 @@ export function Portfolio() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-5 pt-32 md:px-8 md:pt-36 lg:px-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-accent-strong">
-          {portfolioHeader.label}
-        </p>
+
         <h1 className="mt-3 font-serif text-5xl leading-tight text-ink md:text-6xl">
           {portfolioHeader.title}
         </h1>
@@ -29,16 +27,7 @@ export function Portfolio() {
           {portfolioHeader.description}
         </p>
 
-        <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-hairline pt-8 sm:grid-cols-4">
-          {portfolioHeader.metrics.map((metric) => (
-            <div key={metric.label}>
-              <dt className="text-xs uppercase tracking-widest text-ink-soft">
-                {metric.label}
-              </dt>
-              <dd className="mt-1 font-serif text-2xl text-ink">{metric.value}</dd>
-            </div>
-          ))}
-        </dl>
+ 
       </section>
 
       <div className="sticky top-20 z-30 border-y border-hairline bg-paper/95 py-4 backdrop-blur-sm">

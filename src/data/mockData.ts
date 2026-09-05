@@ -71,8 +71,8 @@ export const siteConfig = {
   contactEmail: "contact@benarfaproduction.com",
   phone: "+33 1 42 68 55 00",
   agent: "+33 (0)1 42 68 55 00",
-  locations: "Paris — Tunis — Worldwide",
-  footerRights: "2025 Benarfa Production. All visual works protected under archival copyright.",
+  locations: "Tunis — Worldwide",
+  footerRights: "2026 Benarfa Production. All visual works protected under archival copyright.",
 } as const;
 
 export const navLinks: NavLink[] = [
@@ -83,16 +83,13 @@ export const navLinks: NavLink[] = [
 ];
 
 export const footerLinks: { label: string; path: string }[] = [
-  { label: "Colophon", path: "/about" },
-  { label: "Terms", path: "/contact" },
-  { label: "Privacy", path: "/contact" },
+  //{ label: "Colophon", path: "/about" },
+  //{ label: "Terms", path: "/contact" },
+  //{ label: "Privacy", path: "/contact" },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Behance", href: "https://behance.net" },
-  { label: "VSCO", href: "https://vsco.co" },
-  { label: "Vimeo", href: "https://vimeo.com" },
+  { label: "Instagram", href: "https://www.instagram.com/aziz_ben_arfa/?hl=ar" },
 ];
 
 export const categories: Category[] = [
@@ -182,7 +179,6 @@ export const projects: Project[] = [
         src: images.detailHero,
         alt: "Ancient vaulted stone passageway in the Tunis Medina at night",
         caption: "Plate 01 . Passage des Andalous",
-        ref: "Frame #04 . Roll 12",
         meta: "Tunis 02:41 AM",
       },
       {
@@ -451,16 +447,16 @@ export const projects: Project[] = [
 ];
 
 export const portfolioHeader = {
-  label: "Vol. VII — Retrospective Index",
+
   title: "The Archive",
   description:
     "Curated visual series spanning documentary, editorial fashion, cinematic festivals, and raw urban moments across 12 countries.",
-  metrics: [
-    { value: "1,480", label: "Archived Plates" },
-    { value: "35mm . 6x7", label: "Primary Formats" },
-    { value: "12", label: "Global Locales" },
-    { value: "2018—2025", label: "Active Monograph" },
-  ],
+  //metrics: [
+    //{ value: "1,480", label: "Archived Plates" },
+    //{ value: "35mm . 6x7", label: "Primary Formats" },
+    //{ value: "12", label: "Global Locales" },
+   // { value: "2018—2025", label: "Active Monograph" },
+ // ],
 } as const;
 
 export const artistQuote = {
@@ -474,8 +470,7 @@ export const clients = [
   { name: "VOGUE", note: "Arabia . Editorial" },
   { name: "Cartier", note: "Maison Campaign" },
   { name: "JCC TUNIS", note: "Official Laureate" },
-  { name: "LEICA", note: "Solo Gallery 2023" },
-  { name: "PORSCHE", note: "France . Heritage" },
+
 ] as const;
 
 export const ctaData = {
@@ -487,65 +482,25 @@ export const ctaData = {
 } as const;
 
 export const aboutData = {
-  metaRibbon: {
-    volume: "Curatorial Monograph — Vol. IV",
-    ref: "ARCHIVE REF: BP-2025-BIO",
-    optics: "LEICA M . HASSELBLAD 503CW",
-    location: "PARIS / TUNIS",
-  },
   portrait: {
     image: images.avatar,
     alt: "Editorial black and white portrait of an independent photographer in his early studio",
-    frame: "Frame No. 04 / 36",
-    stock: "Tri-X 400 . 50mm",
-    name: "Kais Benarfa",
-    role: "Founder & Visual Director — Paris / Tunis",
-    locations: ["Paris Bureau (11e Arrondissement)", "Tunis Atelier (La Marsa Corniche)"],
+    name: "Aziz Benarfa",
+    role: "Founder & Visual Director — Tunis",
+    locations: [ "Tunis Atelier (La Marsa Corniche)"],
   },
   bio: {
     label: "About The Artist",
     title: "Observing life in its unscripted grace.",
     paragraphs: [
-      "Kais Benarfa began his visual journey in the labyrinthine souk of the Tunis Medina, where he apprenticed in an analog darkroom and learned that light, like reputation, is earned slowly. What followed was a decade of quiet notebooks, borrowed rangefinders, and a cross-continental practice that now spans editorial, cinema, and private commission.",
-      "Operating between Paris and Tunis, Benarfa Production treats every assignment as a monograph — a cohesive visual argument rather than a scatter of images. His clients range from international fashion houses to UNESCO-designated cultural landmarks, yet his process remains deliberately unhurried: medium-format pacing, hand-printed files, and a strict devotion to analog-negative discipline.",
+      "Aziz Benarfa began his visual journey in the labyrinthine souk of the Tunis Medina, where he apprenticed in an analog darkroom and learned that light, like reputation, is earned slowly. What followed was a decade of quiet notebooks, borrowed rangefinders, and a cross-continental practice that now spans editorial, cinema, and private commission.",
+      "Operating in Tunis, Benarfa Production treats every assignment as a monograph — a cohesive visual argument rather than a scatter of images. His clients range from international fashion houses to UNESCO-designated cultural landmarks, yet his process remains deliberately unhurried: medium-format pacing, hand-printed files, and a strict devotion to analog-negative discipline.",
     ],
     quote:
       "A photograph must possess tension between what is seen and what is felt.",
-    quoteMeta: "Kais Benarfa . Journal Entry 2021 . 35mm Archival Gelatin",
-    badges: [
-      "Hasselblad V-System",
-      "Kodak Portra 400/800",
-      "Leica M Monochrom",
-      "Arri Skypanel Tungsten",
-    ],
+    quoteMeta: "Aziz Benarfa . Journal Entry 2021 . 35mm Archival Gelatin",
   },
-  philosophy: {
-    label: "Philosophy & Approach",
-    title: "Three Pillars in Darkroom Viewing Chamber",
-    pillars: [
-      {
-        index: "01",
-        title: "Analog Sensibility",
-        description: "Medium format pacing, organic silver-halide grain, and the deliberate cadence of the darkroom.",
-      },
-      {
-        index: "02",
-        title: "Unobtrusive Presence",
-        description: "Documentary discretion — the photographer as a patient observer, never an interrupting author.",
-      },
-      {
-        index: "03",
-        title: "Bespoke Color Grading",
-        description: "Proprietary film emulation profiles built from years of calibrated negative scans.",
-      },
-    ],
-    optics: [
-      "Carl Zeiss Planar T* 80mm F/2.8",
-      "Summicron 35mm ASPH",
-      "14 Stops Dynamic",
-      "D50 Neutral",
-    ],
-  },
+
   exhibitions: [
     { year: "2024", title: "Nocturnes", detail: "Solo Exhibition, Galerie Vivienne, Paris" },
     { year: "2023", title: "Official Lead Photographer", detail: "Carthage Film Festival (JCC), Tunis" },
@@ -570,33 +525,27 @@ export const aboutData = {
     secondary: "Explore Selected Folio",
     email: "STUDIO@BENARFA.PRODUCTION",
     agent: "Agent: +33 (0)1 42 68 55 00",
-    dispatch: "CURRENT DISPATCH: PARIS STUDIO",
+    dispatch: "CURRENT DISPATCH: tunisie STUDIO",
   },
 } as const;
 
 export const contactData = {
   hero: {
-    breadcrumb: "Archival Ledger — Bureau d'Etudes / 2025-2026",
     title: "Initiate an Inquiry",
     body: "Available for commissions, editorial assignments, festival coverage, private weddings, and automotive monographs worldwide.",
-    status: "Live Intake: Q3/Q4 2025 Open",
+    status: "Live",
   },
   studio: {
     label: "Atelier & Presence",
-    title: "Paris 8eme & Tunis Sidi Bou Said",
+    title: " Tunis",
     description:
-      "Two studios, one darkroom lineage. Our Paris bureau handles editorial and commercial; the Tunis atelier manages festival, fine-art, and private commissions.",
+      "Our Marsa bureau handles editorial and commercial; the Tunis atelier manages festival, fine-art, and private commissions.",
     email: "contact@benarfaproduction.com",
     phone: "+33 1 42 68 55 00",
-    turnaround: "Replies within 24-48 hours. NDA available on request.",
-    portalCallout: "Access live dailies, capture sheets & secure delivery",
+    turnaround: "Replies within 24-48 hours.",
     studioImage: images.studioDesk,
-    studioAlt: "Monochrome Hasselblad camera on an archival desk",
     socials: [
-      { label: "@benarfa.raw", href: "https://instagram.com" },
-      { label: "Behance Portfolio", href: "https://behance.net" },
-      { label: "VSCO Curated", href: "https://vsco.co" },
-      { label: "Vimeo Master Reel", href: "https://vimeo.com" },
+      { label: "@aziz_ben_arfa", href: "https://www.instagram.com/aziz_ben_arfa/?hl=ar" },
     ],
   },
   form: {
@@ -607,14 +556,14 @@ export const contactData = {
     {
       step: "Step 01",
       title: "Pre-Prod",
-      detail: "Consultation & Moodboard",
+      detail: "Consultation",
       meta: "Duration: 1-2 Weeks",
     },
     {
       step: "Step 02",
       title: "Capture",
       detail: "Production & Capture",
-      meta: "On-Location Worldwide",
+      meta: "On-Location",
     },
     {
       step: "Step 03",
@@ -634,17 +583,16 @@ export const contactGenres: ContactGenre[] = [
   { value: "fine-art", label: "Fine Art Commission" },
 ];
 
-export const budgetTiers: BudgetTier[] = [
-  { value: "4k-8k", label: "EUR 4k-8k (Editorial/Short)" },
-  { value: "8k-15k", label: "EUR 8k-15k (Multi-Day/Wedding)" },
-  { value: "15k-30k", label: "EUR 15k-30k (Commercial/Monograph)" },
-  { value: "30k+", label: "EUR 30k+ (Global Cinema/Tier A)" },
-];
+//export const budgetTiers: BudgetTier[] = [
+ // { value: "4k-8k", label: "EUR 4k-8k (Editorial/Short)" },
+  //{ value: "8k-15k", label: "EUR 8k-15k (Multi-Day/Wedding)" },
+  //{ value: "15k-30k", label: "EUR 15k-30k (Commercial/Monograph)" },
+  //{ value: "30k+", label: "EUR 30k+ (Global Cinema/Tier A)" },
+//];
 
 export const detailData = {
   backLabel: "Back to Archive",
   tag: "Street Photography . Documentary",
-  ref: "ARCHIVE REF: TN-2024-NOC",
   volume: "Volume IX . Flagship Study",
   specDetail: "Independent Fine Art Series (12 editions)",
   heroCaption: "The Echo of Bab Mnara",
