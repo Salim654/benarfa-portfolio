@@ -52,15 +52,10 @@ export function Header() {
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 md:px-8 lg:px-12">
         <Link
           to="/"
-          className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           aria-label="Benarfa Production — Home"
         >
-          <img
-            src={images.logo}
-            alt="Benarfa Production wordmark"
-            className="h-9 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
-          />
-          <span className="hidden text-xs font-medium uppercase tracking-[0.25em] text-ink lg:inline">
+          <span className="font-serif text-lg font-semibold uppercase tracking-[0.18em] text-ink transition-colors duration-300 group-hover:text-accent-strong">
             {siteConfig.name}
           </span>
         </Link>
